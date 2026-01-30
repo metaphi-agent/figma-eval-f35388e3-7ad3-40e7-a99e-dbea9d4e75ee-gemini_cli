@@ -12,7 +12,7 @@ const features = [
     desc: 'With lots of unique blocks, you can easily build a page without coding. Build your next landing page.'
   },
   {
-    icon: './assets/icons/icon-mobile-app.png', 
+    icon: './assets/icons/icon-mobile-app.svg', 
     title: 'Beautiful mobile app',
     desc: 'With lots of unique blocks, you can easily build a page without coding. Build your next landing page.'
   }
