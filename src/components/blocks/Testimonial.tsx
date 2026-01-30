@@ -3,15 +3,15 @@ import React from 'react';
 const testimonials = [
   {
     quote: "“You made it so simple”",
-    text: "My new site is so much faster and easier to work with than my old site.",
-    name: "Corey Valdez",
+    text: "My new site is so much faster and easier to work with than my old site. I just choose the page, make the change and click save.",
+    author: "Corey Valdez",
     role: "Founder at Zenix",
     avatar: "./assets/images/avatar-corey.png"
   },
   {
     quote: "“Simply the best”",
-    text: "Better than all the rest. I’d recommend this product to beginners.",
-    name: "Ian Klein",
+    text: "Better than all the rest. I’d recommend this product to beginners and advanced users.",
+    author: "Ian Klein",
     role: "Digital Marketer",
     avatar: "./assets/images/avatar-ian.png"
   }
@@ -19,20 +19,28 @@ const testimonials = [
 
 export const Testimonial: React.FC = () => {
   return (
-    <section className="py-24 bg-brand-gray">
-      <div className="container-custom">
-        <div className="grid md:grid-cols-2 gap-12 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-          {testimonials.map((t, i) => (
-            <div key={i} className="flex flex-col items-center text-center px-4 pt-8 md:pt-0">
-               <h3 className="font-display font-bold text-2xl mb-4 text-brand-dark">{t.quote}</h3>
-               <p className="text-gray-500 mb-8 max-w-md text-[19px] leading-relaxed opacity-70">
-                 {t.text}
-               </p>
-               <div className="flex flex-col items-center gap-1">
-                 <img src={t.avatar} alt={t.name} className="w-16 h-16 rounded-full object-cover mb-3" />
-                 <div className="font-bold text-brand-dark text-lg">{t.name}</div>
-                 <div className="text-gray-500 text-[15px] opacity-70">{t.role}</div>
-               </div>
+    <section className="py-20 bg-[#F4F7FA]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-8">
+          {testimonials.map((item, index) => (
+            <div key={index} className="bg-white p-10 rounded-lg text-center shadow-sm">
+              <div className="flex justify-center mb-6">
+                <img 
+                  src={item.avatar} 
+                  alt={item.author} 
+                  className="w-16 h-16 rounded-full object-cover"
+                />
+              </div>
+              <p className="font-rubik font-bold text-2xl text-[#161C2D] mb-4">
+                {item.quote}
+              </p>
+              <p className="text-[#161C2D] opacity-70 mb-8 leading-relaxed">
+                {item.text}
+              </p>
+              <div>
+                <div className="font-bold text-[#161C2D]">{item.author}</div>
+                <div className="text-[#161C2D] opacity-70 text-sm">{item.role}</div>
+              </div>
             </div>
           ))}
         </div>

@@ -1,38 +1,52 @@
 import React from 'react';
+import { clsx } from 'clsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'link';
   size?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
+  children: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
-export const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  variant = 'primary', 
-  size = 'md', 
-  className = '',
-  ...props 
+export const Button: React.FC<ButtonProps> = ({
+  variant = 'primary',
+  size = 'md',
+  fullWidth = false,
+  className,
+  children,
+  icon,
+  ...props
 }) => {
-  const baseStyles = "inline-flex items-center justify-center rounded-lg font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer";
+  const baseStyles = "inline-flex items-center justify-center rounded-lg font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer";
   
   const variants = {
-    primary: "bg-brand-blue text-white hover:bg-blue-700 shadow-md hover:shadow-lg",
-    secondary: "bg-brand-green text-white hover:opacity-90 shadow-md hover:shadow-lg",
-    outline: "border border-gray-300 text-brand-dark hover:border-brand-dark",
-    ghost: "text-brand-dark hover:bg-brand-gray"
+    primary: "bg-[#473BF0] text-white hover:bg-[#3b2fc9] focus:ring-[#473BF0]", // Based on design blue
+    secondary: "bg-[#EBF2FF] text-[#473BF0] hover:bg-[#dbe7ff] focus:ring-[#473BF0]", // Light blue with blue text
+    outline: "border border-[#E7E9ED] bg-transparent text-[#161C2D] hover:bg-gray-50 focus:ring-gray-200",
+    ghost: "bg-transparent text-[#161C2D] hover:bg-gray-100 focus:ring-gray-200",
+    link: "bg-transparent text-[#161C2D] hover:underline p-0 h-auto",
   };
 
   const sizes = {
     sm: "px-4 py-2 text-sm",
     md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg"
+    lg: "px-8 py-4 text-lg",
   };
 
   return (
-    <button 
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+    <button
+      className={clsx(
+        baseStyles,
+        variants[variant],
+        sizes[size],
+        fullWidth && "w-full",
+        className
+      )}
       {...props}
     >
       {children}
+      {icon && <span className="ml-2">{icon}</span>}
     </button>
   );
 };

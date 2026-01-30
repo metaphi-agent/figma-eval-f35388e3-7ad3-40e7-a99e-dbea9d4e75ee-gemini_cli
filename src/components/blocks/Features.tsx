@@ -2,35 +2,37 @@ import React from 'react';
 
 const features = [
   {
-    icon: './assets/icons/icon-project-management.svg',
-    title: 'Project management',
-    desc: 'With lots of unique blocks, you can easily build a page without coding. Build your next landing page.'
+    title: "Project management",
+    description: "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+    icon: "./assets/icons/icon-project-management.svg",
   },
   {
-    icon: './assets/icons/icon-time-tracking.svg',
-    title: 'Time tracking',
-    desc: 'With lots of unique blocks, you can easily build a page without coding. Build your next landing page.'
+    title: "Time tracking",
+    description: "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+    icon: "./assets/icons/icon-time-tracking.svg",
   },
   {
-    icon: './assets/icons/icon-mobile-app.svg', 
-    title: 'Beautiful mobile app',
-    desc: 'With lots of unique blocks, you can easily build a page without coding. Build your next landing page.'
-  }
+    title: "Beautiful mobile app",
+    description: "With lots of unique blocks, you can easily build a page without coding. Build your next landing page.",
+    icon: "./assets/icons/icon-mobile-app.svg",
+  },
 ];
 
 export const Features: React.FC = () => {
   return (
     <section className="py-20 bg-white">
-      <div className="container-custom">
-        <div className="grid md:grid-cols-3 gap-x-12 gap-y-12">
-          {features.map((f, i) => (
-            <div key={i} className="flex flex-col items-start text-left">
-              <div className="mb-6 w-12 h-12 flex items-center justify-center">
-                 <img src={f.icon} alt={f.title} className="w-full h-full object-contain" />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-3 gap-12">
+          {features.map((feature, index) => (
+            <div key={index} className="flex flex-col items-start">
+              <div className="mb-6">
+                <img src={feature.icon} alt={feature.title} className="w-12 h-12" />
               </div>
-              <h3 className="font-display font-bold text-xl mb-3 text-brand-dark">{f.title}</h3>
-              <p className="text-gray-500 leading-relaxed opacity-70 text-[17px]">
-                {f.desc}
+              <h3 className="font-rubik font-bold text-xl text-[#161C2D] mb-3">
+                {feature.title}
+              </h3>
+              <p className="text-[#161C2D] opacity-70 leading-relaxed">
+                {feature.description}
               </p>
             </div>
           ))}

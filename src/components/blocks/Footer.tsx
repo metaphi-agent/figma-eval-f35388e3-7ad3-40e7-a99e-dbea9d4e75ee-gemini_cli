@@ -1,25 +1,60 @@
 import React from 'react';
 
-const links = [
-  { title: 'Company', items: ['About us', 'Contact us', 'Careers', 'Press'] },
-  { title: 'Product', items: ['Features', 'Pricing', 'News', 'Help desk', 'Support'] },
-  { title: 'Services', items: ['Digital Marketing', 'Content Writing', 'SEO for Business', 'UI Design'] },
-  { title: 'Legal', items: ['Privacy Policy', 'Terms & Conditions', 'Return Policy'] },
+const socialIcons = [
+  { name: "Twitter", icon: "./assets/icons/logo-twitter.svg" },
+  { name: "Facebook", icon: "./assets/icons/logo-facebook.svg" },
+  { name: "Instagram", icon: "./assets/icons/logo-instagram.svg" },
+  { name: "LinkedIn", icon: "./assets/icons/logo-linkedin.svg" },
+];
+
+const columns = [
+  {
+    title: "Company",
+    links: ["About us", "Contact us", "Careers", "Press"]
+  },
+  {
+    title: "Product",
+    links: ["Features", "Pricing", "News", "Help desk", "Support"]
+  },
+  {
+    title: "Services",
+    links: ["Digital Marketing", "Content Writing", "SEO for Business", "UI Design"]
+  },
+  {
+    title: "Legal",
+    links: ["Privacy Policy", "Terms & Conditions", "Return Policy"]
+  }
 ];
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-white pt-20 pb-10 border-t border-gray-100">
-      <div className="container-custom">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          {links.map((col, i) => (
-            <div key={i}>
-              <h4 className="font-bold text-gray-400 text-[15px] mb-8">{col.title}</h4>
+    <footer className="pt-20 pb-10 bg-[#F4F7FA]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+          <div className="lg:col-span-1">
+            <a href="#" className="font-rubik font-bold text-2xl text-[#161C2D] block mb-6">
+              Brainwave.io
+            </a>
+            <p className="text-[#161C2D] opacity-70 text-sm mb-8">
+              With lots of unique blocks, you can easily build a page without coding. Build your next landing page.
+            </p>
+            <div className="flex space-x-4">
+              {socialIcons.map((social) => (
+                <a key={social.name} href="#" className="hover:opacity-75 transition-opacity">
+                  <img src={social.icon} alt={social.name} className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          {columns.map((col, index) => (
+            <div key={index}>
+              <h4 className="font-bold text-[#161C2D] mb-6">{col.title}</h4>
               <ul className="space-y-4">
-                {col.items.map((item, j) => (
-                  <li key={j}>
-                    <a href="#" className="text-brand-dark hover:text-brand-blue transition-colors font-medium text-[17px]">
-                      {item}
+                {col.links.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-[#161C2D] opacity-70 hover:opacity-100 hover:text-[#473BF0] transition-colors text-sm">
+                      {link}
                     </a>
                   </li>
                 ))}
@@ -28,22 +63,7 @@ export const Footer: React.FC = () => {
           ))}
         </div>
         
-        <div className="border-t border-gray-100 pt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-10">
-             <div className="font-display font-bold text-3xl tracking-tighter text-brand-dark">
-               Brainwave.io
-             </div>
-             <p className="text-gray-500 text-[15px] max-w-xs opacity-70">
-               With lots of unique blocks, you can easily build a page without coding. Build your next landing page.
-             </p>
-          </div>
-          <div className="flex items-center gap-6">
-             <a href="#"><img src="./assets/icons/logo-twitter.svg" alt="Twitter" className="w-5 h-5 opacity-40 hover:opacity-100 transition-opacity" /></a>
-             <a href="#"><img src="./assets/icons/logo-facebook.svg" alt="Facebook" className="w-5 h-5 opacity-40 hover:opacity-100 transition-opacity" /></a>
-             <a href="#"><img src="./assets/icons/logo-instagram.svg" alt="Instagram" className="w-5 h-5 opacity-40 hover:opacity-100 transition-opacity" /></a>
-             <a href="#"><img src="./assets/icons/logo-linkedin.svg" alt="LinkedIn" className="w-5 h-5 opacity-40 hover:opacity-100 transition-opacity" /></a>
-          </div>
-        </div>
+        {/* Copyright or bottom line if needed, design didn't show much but usually implies it */}
       </div>
     </footer>
   );

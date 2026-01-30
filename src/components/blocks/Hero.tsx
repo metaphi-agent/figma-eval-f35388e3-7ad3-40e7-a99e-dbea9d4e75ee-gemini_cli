@@ -3,28 +3,32 @@ import { Button } from '../ui/Button';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="pt-20 pb-20 bg-white text-center">
-      <div className="container-custom relative z-10">
-        <div className="max-w-3xl mx-auto mb-16">
-          <h1 className="font-display font-bold text-5xl md:text-[52px] tracking-tight mb-6 leading-tight text-brand-dark">
-            Get things done by awesome remote team
-          </h1>
-          <p className="text-[19px] text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto opacity-70">
-            We share common trends and strategies for improving your rental income and making sure you stay in high demand.
-          </p>
-          <div className="flex items-center justify-center gap-4">
-            <Button variant="primary" size="lg">Get started for free</Button>
-            <Button variant="outline" size="lg">Learn more</Button>
+    <section className="pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          {/* Content */}
+          <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+            <h1 className="font-rubik font-bold text-4xl sm:text-5xl lg:text-[52px] leading-tight text-[#161C2D] mb-6">
+              Get things done by awesome remote team
+            </h1>
+            <p className="text-lg text-[#161C2D] opacity-70 mb-10 leading-relaxed">
+              We share common trends and strategies for improving your rental income and making sure you stay in high demand.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button size="lg">Get started for free</Button>
+              <Button variant="ghost" size="lg">Learn more</Button>
+            </div>
           </div>
-        </div>
-        
-        <div className="relative max-w-5xl mx-auto">
-           <img 
-             src="./assets/images/hero-image.png" 
-             alt="App Dashboard" 
-             className="w-full h-auto rounded-xl shadow-2xl border border-gray-100"
-             loading="eager"
-           />
+
+          {/* Image */}
+          <div className="relative">
+            <img
+              src="./assets/images/hero-image.png"
+              alt="Hero Dashboard"
+              className="w-full h-auto rounded-lg shadow-2xl relative z-10"
+            />
+            {/* Decor elements could go here */}
+          </div>
         </div>
       </div>
     </section>
