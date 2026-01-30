@@ -1,30 +1,12 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 
 @theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Rubik', system-ui, sans-serif;
-  
-  --color-brand-dark: #161C2D;
-  --color-brand-green: #68D585;
-  --color-brand-blue: #473BF0;
-  --color-brand-gray: #F4F7FA;
-  --color-brand-muted: #161C2D; /* Opacity handled in utility */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-rubik: 'Rubik', sans-serif;
+  --font-gilroy: 'Gilroy', 'Inter', sans-serif;
 }
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-brand-dark);
-  background-color: white;
   -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-}
-
-.container-custom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
 }

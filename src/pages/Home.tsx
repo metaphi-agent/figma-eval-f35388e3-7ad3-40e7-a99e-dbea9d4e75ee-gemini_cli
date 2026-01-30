@@ -11,9 +11,9 @@ import { FAQ } from '../components/blocks/FAQ';
 import { CTA } from '../components/blocks/CTA';
 import { Footer } from '../components/blocks/Footer';
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   return (
-    <div className="font-sans antialiased text-brand-dark bg-white">
+    <div className="font-gilroy antialiased bg-white">
       <Header />
       <main>
         <Hero />
@@ -30,3 +30,5 @@ export const Home: React.FC = () => {
     </div>
   );
 };
+
+export default Home;
